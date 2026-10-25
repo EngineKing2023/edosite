@@ -16,6 +16,10 @@ body {
 	box-sizing: border-box;
 	padding: var(--page-gutter);
 	background: #000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 #screen,
@@ -28,11 +32,11 @@ body {
 	width: 50%;
 	max-width: 100%;
 	height: auto;
-	margin: 25px auto 0;
+	margin: 0;
 }
 
 .services {
-	margin-top: 32px;
+	margin-top: 0;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 900;
 	font-style: italic;
@@ -43,14 +47,14 @@ body {
 .services__title {
 	margin: 0;
 	color: #f0bd41;
-	font-size: clamp(36px, 10vw, 64px);
+	font-size: clamp(30px, 8vw, 64px);
 	letter-spacing: 0.06em;
 }
 
 .services__item {
-	margin: 18px 0 0;
+	margin: 14px 0 0;
 	color: #fff;
-	font-size: clamp(20px, 5.5vw, 30px);
+	font-size: clamp(16px, 4.5vw, 30px);
 	letter-spacing: 0.04em;
 }
 
@@ -62,11 +66,63 @@ body {
 	transform: skewX(-14deg);
 }
 
+.car-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(12px, 3vw, 24px);
+	padding-bottom: calc(var(--page-gutter) + 72px);
+}
+
 .car-image {
 	display: block;
-	width: min(80%, 420px);
+	width: min(68%, 357px);
 	height: auto;
-	margin: 52px auto 0;
+	margin: 0;
+}
+
+.contact-email {
+	display: block;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	text-align: center;
+	color: #f0bd41;
+	font-size: clamp(15px, 4.2vw, 24px);
+	letter-spacing: 0.04em;
+	text-decoration: none;
+}
+
+.contact-email:focus-visible {
+	outline: 2px solid #f0bd41;
+	outline-offset: 4px;
+}
+
+.social-links {
+	position: absolute;
+	top: var(--page-gutter);
+	left: var(--page-gutter);
+	display: flex;
+	flex-direction: row;
+	gap: clamp(10px, 2.5vw, 16px);
+}
+
+.social-link {
+	display: block;
+	line-height: 0;
+}
+
+.social-link img {
+	display: block;
+	width: clamp(30px, 8vw, 40px);
+	height: auto;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+}
+
+.social-link:hover img,
+.social-link:focus-visible img {
+	transform: scale(1.1);
 }
 
 .call-button {
@@ -102,7 +158,38 @@ body {
 	color: #f0bd41;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 450px) {
+	:root {
+		--page-gutter: 12px;
+	}
+
+	#screen > img {
+		width: 42%;
+	}
+
+	.services__title {
+		font-size: clamp(26px, 8vw, 34px);
+	}
+
+	.services__item {
+		margin: 10px 0 0;
+		font-size: clamp(14px, 4.5vw, 19px);
+	}
+
+	.car-section {
+		padding-bottom: calc(var(--page-gutter) + 64px);
+	}
+
+	.car-image {
+		width: min(66%, 272px);
+	}
+
+	.contact-email {
+		font-size: clamp(13px, 4vw, 17px);
+	}
+}
+
+@media screen and (min-width: 451px) {
 	:root {
 		--page-gutter: 20px;
 	}
@@ -111,8 +198,16 @@ body {
 		width: 25%;
 	}
 
+	.social-links {
+		display: none;
+	}
+
 	.call-button {
 		display: none;
+	}
+
+	.car-section {
+		padding-bottom: 0;
 	}
 }
 
